@@ -9,11 +9,12 @@ import { projectData } from "../data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 const TECH_ICONS = [
-  "/icons/icon-java.png", "/icons/icon-python.png", "/icons/icon-js.png", 
-  "/icons/icon-php.png", "/icons/icon-pgsql.png", "/icons/icon-git.png"
+  "/icons/icon-java.png", "/icons/icon-python.png", "/icons/icon-react.png", 
+  "/icons/icon-php.png", "/icons/icon-pgsql.png", "/icons/icon-next.png",
 ];
 
 export default function ProjectsPage() {
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const scrollPrev = useCallback(() => {
@@ -32,14 +33,14 @@ export default function ProjectsPage() {
       <div className="relative z-10 flex flex-col items-center px-4 pt-40">
         {/* Header Section */}
         <section className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 border-[#8EB694] text-[#8EB694] px-4 py-1 rounded-full uppercase font-bold tracking-widest">
+          <Badge variant="outline" className="mb-10 border-[#8EB694] text-[#8EB694] px-4 py-1 rounded-full uppercase font-bold tracking-widest">
             Innovations
           </Badge>
-          <div className="relative flex items-center justify-center p-20 min-h-[250px] w-full max-w-2xl mx-auto">
-            <Image src="/images/projectsStack.png" alt="Tech Stack" fill className="object-contain" />
-            <div className="relative z-10 flex flex-wrap justify-center gap-6 mt-7">
+          <div className="relative flex items-center justify-center p-20 md:p-20 min-h-[150px] md:min-h-[250px] w-full max-w-2xl mx-auto">
+            <Image src="/images/projectsStack.png" alt="Tech Stack" fill className="object-contain" priority />
+            <div className="relative z-10 flex flex-nowrap justify-center items-center gap-2 md:gap-4 lg:gap-6 max-w-[70%] md:max-w-[70%] lg:max-w-none">
               {TECH_ICONS.map((icon, i) => (
-                <div key={i} className="relative w-12 h-12">
+                <div key={i} className="relative flex-shrink-0 w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 transition-transform hover:scale-110">
                   <Image src={icon} fill className="object-contain" alt="tech icon" />
                 </div>
               ))}

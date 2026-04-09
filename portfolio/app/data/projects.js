@@ -1,4 +1,3 @@
-// data/projects.ts
 export const projectData = [
   {
     id: "pup-launch",
@@ -39,5 +38,15 @@ export const projectData = [
     techIcons: ["/icons/icon-react.png", "/icons/icon-mysqlite.png", "/icons/icon-vite.png", "/icons/icon-laravel.png", "/icons/icon-js.png"],
     image: "/images/proj-iskotrack.png",
     details: "Developed a triple-ended web application for study hub owners for operational tasks. ISKOtrack or Intelligent Study Keeper and Organizer is a full-stack solution for table reservations and has a potential for IOT integration. I primarily focused on the Analytics page, performing data visualization techniques from real-time data."
+  },
+  {
+    id: "simula",
+    title: "SI.MU.LA",
+    badge: "Web Development",
+    link: "https://aegera-mini-project-2-tau.vercel.app/",
+    description: "Serves as a starting point for artists to turn their own passion into other’s inspiration. By providing a platform to share their talents and interests, SIMULA aims to build a digital community for all hobbyists.",
+    techIcons: ["/icons/icon-react.png", "/icons/icon-next.png", "/icons/icon-tailark.png", "/icons/icon-drizzle.png", "/icons/icon-neondb.png", "/icons/icon-tiptap.png", "/icons/icon-clerk.png"],
+    image: "/images/proj-simula.png",
+    details: "SI.MU.LA is a high-performance web application engineered to facilitate community-driven content creation and discovery. The platform’s architecture prioritizes security and user agency, integrating Clerk Authentication for seamless social login and identity management. A robust Search Engine allows for granular filtering of exhibits by title, tags, or author, while a native Feed/Profile Toggle provides immediate transitions between global exploration and personal portfolio management. Beyond discovery, the system supports a full-scale Interaction Suite, featuring a real-time Like system to track engagement and a comprehensive Comment module designed for constructive dialogue. The core of the application is powered by a sophisticated Publishing Engine that provides full CRUD (Create, Read, Update, Delete) capabilities. This ensures users have total control over their digital exhibits, allowing them to manage their Canvas with a rich-text interface that bridges the gap between raw creativity and polished publication."
   }
 ];
