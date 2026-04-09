@@ -33,7 +33,7 @@ export default function AboutPage() {
       pic: "/images/about2.png"
     },
     {
-      year: "2022 - Present",
+      year: "2022 - 2026",
       title: "BS Computer Science",
       uni: "PUP Manila",
       desc: "Maintaining a 6-time President's Lister status with a focus on technical growth.",
@@ -57,7 +57,7 @@ export default function AboutPage() {
       pic: "/images/about5.png"
     },
     {
-      year: "Jan 2026 - Present",
+      year: "Jan 2026 - March 2026",
       title: "Software Engineer Intern",
       work: "Stratpoint Technologies",
       desc: "Developing scalable web applications and enhancing user experiences through innovative solutions.",
@@ -125,27 +125,6 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-
-        {/* SKILLS FOOTER */}
-        <section className="relative max-w-4xl w-full flex flex-col items-center">   
-          <div className="relative flex items-center justify-center p-12 min-h-[300px] w-full">
-            <img 
-              src="/images/aboutSkills.png" 
-              alt="Skills Container" 
-              className="absolute inset-0 w-full h-full object-contain opacity-80" 
-            />
-            <div className="relative z-10 flex flex-wrap justify-center gap-7 max-w-2xl mt-17">
-              {["Work Ethic", "Teamwork", "Business Math", "Adaptability", "Fast Learner", "Creativity", "Problem-solving"].map((skill) => (
-                <Badge 
-                  key={skill} 
-                  className="bg-[#8EB694] hover:bg-[#7a9e80] text-white px-6 py-2 rounded-full font-bold shadow-md transition-colors"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </section>
       </div>
     </section>
   );
