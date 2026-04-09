@@ -2,7 +2,7 @@
 import React, { useCallback } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Icons for arrows
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
 import { Badge } from "@/components/ui/badge";
 import { projectData } from "../data/projects";
@@ -14,7 +14,6 @@ const TECH_ICONS = [
 ];
 
 export default function ProjectsPage() {
-  // Initialize Embla with loop enabled
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const scrollPrev = useCallback(() => {

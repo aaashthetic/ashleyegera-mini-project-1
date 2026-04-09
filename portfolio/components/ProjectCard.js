@@ -7,10 +7,10 @@ import { ExternalLink } from "lucide-react";
 
 export default function ProjectCard({ project }) {
   return (
-    <Card className="group bg-white/40 backdrop-blur-md border-2 border-[#FA9DA6] shadow-lg hover:scale-105 transition-all duration-300 flex flex-col overflow-hidden rounded-[1rem]">
+    <Card className="h-[460px] md:h-[460px] w-full group bg-white/40 backdrop-blur-md border-2 border-[#FA9DA6] shadow-lg hover:scale-105 transition-all duration-300 flex flex-col overflow-hidden rounded-[1rem]">
       
       <div className="p-4 pt-0 pb-0"> 
-        <div className="relative h-48 w-full overflow-hidden rounded-[0.5rem]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-[0.5rem]">
           <Image
             src={project.image}
             alt={project.title}
@@ -21,7 +21,7 @@ export default function ProjectCard({ project }) {
         </div>
       </div>
 
-      <CardContent className="p-6 flex-grow flex flex-col">
+      <CardContent className="p-6 pt-2 pb-2 flex-grow flex flex-col gap-1 overflow-hidden">
         <div className="flex justify-between items-start mb-3">
           <Badge className="bg-[#8EB694] hover:bg-[#8EB694]/80 text-white px-3 py-0.5 border-none">
             {project.badge}
@@ -42,16 +42,18 @@ export default function ProjectCard({ project }) {
           {project.title}
         </h3>
 
-        <p className="text-sm text-gray-600 line-clamp- font-arial flex-grow leading-relaxed">
+        <p className="text-sm text-gray-600 font-arial leading-relaxed flex-grow line-clamp-4 md:line-clamp-5">
           {project.description}
         </p>
 
-        <Link
-          href={`/projects/${project.id}`}
-          className="mt-4 text-sm font-bold text-[#8EB694] hover:underline uppercase tracking-widest"
-        >
-          View Details →
-        </Link>
+        <div className="mt-auto flex-shrink-0">
+          <Link
+            href={`/projects/${project.id}`}
+            className="text-sm font-bold text-[#8EB694] hover:underline uppercase tracking-widest inline-block"
+          >
+            View Details →
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );
