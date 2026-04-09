@@ -6,7 +6,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="min-h-screen text-white bg-[#F3E2C6] overflow-x-hidden" suppressHydrationWarning={true}>
         <NavBar />
-        <main className="pt-0">
+        <main className="pt-0 relative w-full overflow-x-hidden">
           {children}
         </main>
       </body>

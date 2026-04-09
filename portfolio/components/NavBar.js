@@ -10,12 +10,14 @@ import {
   SheetTrigger,
   SheetHeader,
   SheetTitle,
+  SheetClose,
 } from "@/components/ui/sheet";
 
 export default function NavBar() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,15 +49,15 @@ export default function NavBar() {
   const getMobileLinkStyle = (path) =>
     pathname === path
       ? "bg-white/90 text-[#FA9DA6] w-full text-center py-3 rounded-full shadow-md"
-      : "text-white hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] w-full text-center py-3 transition-all duration-300 hover:drop-shadow-[0_0_5px_rgba(255,255,255,1)]";
+      : "text-[#FA9DA6] hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] w-full text-center py-3 transition-all duration-300 hover:drop-shadow-[0_0_5px_rgba(255,255,255,1)]";
 
   return (
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out
         ${hidden ? "-translate-y-full" : "translate-y-0"}
-        bg-transparent py-6 md:py-8`}
+        bg-transparent py-4 md:py-8`}
       >
-        <div className="flex justify-between items-center w-11/12 max-w-6xl mx-auto">
+        <div className="flex justify-between items-center w-full max-w-6xl mx-auto px-6 md:px-0">
           {/* LEFT LINKS */}
           <div className="hidden md:flex flex-1 justify-evenly items-center">
             {navLinks.slice(0, 2).map((link) => (
@@ -70,11 +72,13 @@ export default function NavBar() {
           </div>
 
           {/* CENTER TITLE */}
-          <div className="flex-1 flex justify-start md:justify-center">
+          <div className={`md:flex-1 flex justify-center transition-all duration-300 
+            ${menuOpen ? "blur-md opacity-60 scale-95 md:blur-none md:opacity-100 md:scale-100" : "blur-0 opacity-100"}`}
+          >
             <img
               src="/images/title.png"
               alt="Title"
-              className="object-contain w-[40vw] max-w-[150px] md:max-w-[200px]"
+              className="object-contain w-[120px] md:w-[200px]"
             />
           </div>
 
@@ -92,16 +96,16 @@ export default function NavBar() {
           </div>
 
          {/* SHADCN MOBILE MENU */}
-          <div className="md:hidden">
-            <Sheet>
+          <div className="md:hidden flex flex-1 justify-end items-center">
+            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
                 <button className="text-white p-2 hover:scale-110 transition-transform">
-                  <Menu size={32} />
+                  <Menu size={25} />
                 </button>
               </SheetTrigger>
               <SheetContent 
                 side="right" 
-                className="w-[300px] bg-[#F3E2C6] border-none flex flex-col items-center pt-20"
+                className="w-[280px] bg-[#F3E2C6] border-none flex flex-col items-center pt-20 z-[150]"
               >
                 <SheetHeader className="mb-10">
                   <SheetTitle>
