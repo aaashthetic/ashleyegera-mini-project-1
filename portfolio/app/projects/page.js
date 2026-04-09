@@ -10,7 +10,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 const TECH_ICONS = [
   "/icons/icon-java.png", "/icons/icon-python.png", "/icons/icon-react.png", 
-  "/icons/icon-php.png", "/icons/icon-pgsql.png", "/icons/icon-next.png",
+  "/icons/icon-php.png", "/icons/icon-pgsql.png", "/icons/icon-nextjs.png",
 ];
 
 export default function ProjectsPage() {
