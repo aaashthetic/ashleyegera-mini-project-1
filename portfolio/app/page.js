@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const [hidden, setHidden] = useState(false);
-  const [lastScroll, setLastScroll] = useState();
+  const [lastScroll, setLastScroll] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +29,7 @@ export default function HomePage() {
   }, [lastScroll]);
 
   return (
-      <section className="relative w-full min-h-screen overflow-visible">
+      <section className="relative w-full overflow-hidden min-h-screen pt-20 pb-20">
         {/* LEFT GLOW */}
         <GradientBlob color="#FA9DA6" className="w-[400px] h-[400px] sm:w-[300px] sm:h-[400px] lg:w-[400px] lg:h-[400px] -top-20 -left-20" />
         {/* CENTER GLOW */}
@@ -39,55 +39,60 @@ export default function HomePage() {
         
 
         {/* CONTENT */}
-        <div className={`relative z-10 flex h-full flex-col items-center justify-center text-center px-4 transition-all duration-700 ${hidden ? "opacity-80 -translate-y-10" : "opacity-100 translate-y-0"}`}>
+        <div className={`relative z-10 flex flex-col items-center px-4 transition-all duration-700 ${hidden ? "opacity-80 -translate-y-10" : "opacity-100 translate-y-0"}`}>
+          <Badge variant="outline" className="mt-20 mb-10 border-[#8EB694] text-[#8EB694] px-6 py-1 rounded-full uppercase tracking-widest font-bold">
+            Hello World!
+          </Badge>
 
-          {/* CENTER CONTAINER */}
-          <div className="absolute top-130 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[1000px]">
-            <Badge variant="outline" className="mb-2 border-[#8EB694] text-[#8EB694] px-6 py-1 rounded-full uppercase tracking-widest font-bold">
-              Hello World!
-            </Badge>
-            <img
-              src="/images/homeMainImage.png"
-              alt="Home Image"
-              className="object-contain rounded-xl w-[100vw] max-w-[1000px] h-auto"
-            />
-          </div>
-
-          <div className="absolute top-247 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <GradientBlob color="#FA9DA6" className="absolute -right-20 sm:-right-40 top-1/2 -translate-y-1/2 w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] -z-10 opacity-70" />
-            <GradientBlob color="#FA9DA6" className="absolute -left-20 sm:-left-40 top-1/2 -translate-y-1/2 w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] -z-10 opacity-100" />
-            
-            <div className="absolute top-66 left-30 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[1150px]">
+          <div className="relative w-full max-w-[1000px] flex flex-col items-center">
+            <div className="relative w-full z-20 left-[15px]">
               <img
-                src="/images/homeCard.png"
-                alt="Summary Container"
-                className="object-contain rounded-xl w-[100vw] max-w-[800px]"
+                src="/images/homeMainImage.png"
+                alt="Home Image"
+                className="w-full h-auto object-contain rounded-xl"
               />
+            </div>
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-70 left-110 -translate-x-1/2 -translate-y-0 w-[90vw] max-w-[1220px]">
-                <p className="text-[#8EB694] font-bold font-[Arial] text-base md:text-1xl text-center leading-snug mt-12">
-                  Welcome to my digital garden! I’m a Computer Science student from PUP Manila and an aspiring Software Engineer who loves cultivating full-stack solutions. Throughout my journey, I’ve cross-pollinated technical skills from my Data Science internship with business insights from my years in e-commerce to grow projects that are both functional and impactful. As a five-time President’s Lister, I pride myself on nurturing every "seed" of code with dedication and academic excellence. I believe that the best software flourishes when technical roots meet user-focused blossoms, creating a landscape where quality services can truly thrive. I’m so glad you’ve stopped by to see what’s currently in bloom—feel free to wander through my work!
-                </p>
+            <div className="absolute right-[20px] top-[27%] md:top-[32%] left-1/2 -translate-x-1/2 w-[70%] md:w-[70%] max-w-[700px] z-30 pointer-events-none">
+              <img
+                src="/images/role.png"
+                alt="Software Engineering Intern"
+                className="w-full h-auto object-contain drop-shadow-lg"
+              />
+            </div>
 
-                <div className="mt-6">
-                  <Link href="/about">
-                    <Button className="cursor-pointer bg-[#FA9DA6] hover:bg-[#ff8484] text-white hover:text-[#fefefe] hover:scale-110 active:scale-100 font-bold font-arial px-8 py-2 rounded-full transition-all duration-300 shadow-md">
-                      Explore
-                    </Button>
-                  </Link>
+            <div className="relative -mt-[10%] md:-mt-[8%] w-full max-w-[950px] z-10 right-[22px]">
+              <div className="relative w-full flex justify-center items-center">
+                <img
+                  src="/images/homeCard.png"
+                  alt="Summary Container"
+                  className="w-full h-auto object-contain"
+                />
+
+                {/* TEXT */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <div className="relative flex flex-col items-center w-full max-w-[75%] md:max-w-[80%] md:left-[35px] left-5">
+                    <p className="text-[#8EB694] font-bold font-arial text-[9px] sm:text-[14px] md:text-lg lg:text-xl leading-snug md:leading-loose md:leading-relaxed">
+                      Welcome to my digital garden! I’m a Computer Science student from PUP Manila and an aspiring Software Engineer who loves cultivating full-stack solutions. Throughout my journey, I’ve cross-pollinated technical skills from my Data Science internship with business insights from my years in e-commerce to grow projects that are both functional and impactful. As a five-time President’s Lister, I pride myself on nurturing every seed of code with dedication and academic excellence. I believe that the best software flourishes when technical roots meet user-focused blossoms, creating a landscape where quality services can truly thrive. I’m so glad you’ve stopped by to see what’s currently in bloom—feel free to wander through my work!
+                    </p>
+                  </div>
+
+                  <div className="mt-6 md:mt-8 z-50 relative left-5 md:left-8">
+                    <Link href="/about">
+                      <Button className="cursor-pointer bg-[#FA9DA6] hover:bg-[#ff8484] text-white font-bold px-8 py-1 md:px-8 md:py-1 rounded-full text-[9px] md:text-sm shadow-md transition-all duration-300 hover:scale-105 active:scale-95">
+                        Explore
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-
               </div>
             </div>
-          <div className="absolute top-[-10] left-0 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[800px]">
-            <img
-              src="/images/role.png"
-              alt="Software Engineering Intern"
-              className="object-contain rounded-xl w-[100vw] max-w-[800px]"
-            />
-            </div>
           </div>
-        </div>
+          <div className="relative mt-24 md:mt-40 w-full max-w-[1150px] flex justify-center">
+            <GradientBlob color="#FA9DA6" className="absolute -right-20 sm:-right-40 top-1/2 -translate-y-1/2 w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] -z-10 opacity-70" />
+            <GradientBlob color="#FA9DA6" className="absolute -left-20 sm:-left-40 top-1/2 -translate-y-1/2 w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] -z-10 opacity-100" />
+          </div>
+        </div>  
       </section>
   );
 }
